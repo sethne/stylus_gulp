@@ -14,7 +14,11 @@ gulp.task('compile', function () {
     .pipe(stylus({
       use: [
         jeet(),
-        nib()
+        axis(),
+        nib(),
+        rupture(),
+        typographic(),
+        autoprefixer()
       ],
       compress: false
     }))
