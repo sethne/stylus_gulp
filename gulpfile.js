@@ -1,24 +1,26 @@
 var gulp = require('gulp');
 var stylus = require('gulp-stylus');
-var jeet = require('jeet');
+
+var autoprefixer = require('autoprefixer-stylus');
 var axis = require('axis');
+var jeet = require('jeet');
 var nib = require('nib');
 var rupture = require('rupture');
 var typographic = require('typographic');
-var autoprefixer = require('autoprefixer-stylus');
 
-var stylSrc = './assets/stylus/style.styl'
+var stylSrc = './assets/stylus/style.styl';
 
 gulp.task('compile', function () {
   gulp.src(stylSrc)
     .pipe(stylus({
       use: [
-        jeet(),
+        autoprefixer(),
         axis(),
+        jeet(),
         nib(),
         rupture(),
         typographic(),
-        autoprefixer()
+
       ],
       compress: false
     }))
